@@ -10,6 +10,7 @@ public class Nationality {
     private long count;
     private String name;
 
+
     @SerializedName("country")
     private List<Country> countries;
 
@@ -44,13 +45,6 @@ public class Nationality {
         this.countries = countries;
     }
 
-    /*public String getCountry(){
-        int c = 0;
-        for (int i = 1; i < countries.size(); i++){
-            if(countries.get(i).getProbability() > countries.get(c).getProbability())c = i;
-        }
-        return countries.get(c).getCountryId();
-    }*/
     public static class Country {
 
         private String countryId;

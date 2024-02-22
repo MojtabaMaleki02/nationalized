@@ -9,7 +9,7 @@ public class Main {
         }
         var client = NationalizeClient.newInstance();
         var nationality = client.getNationality(args[0]);
-        System.out.println(nationality.getCountry());
+        System.out.println(nationality);
     }
 
 }
