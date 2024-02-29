@@ -7,6 +7,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.util.Collections;
 import java.util.List;
 
+@lombok.Data
+
 public class Nationality {
 
     private long count;
@@ -33,30 +35,7 @@ public class Nationality {
         }else return "Not Found";
     }
 
-    public long getCount() {
-        return count;
-    }
-
-    public void setCount(long count) {
-        this.count = count;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Country> getCountries() {
-        return countries;
-    }
-
-    public void setCountries(List<Country> countries) {
-        this.countries = countries;
-    }
-
+    @lombok.Data
     public static class Country {
 
         private String countryId;
@@ -64,27 +43,6 @@ public class Nationality {
 
         public Country(String countryId, float probability) {
             this.countryId = countryId;
-            this.probability = probability;
-        }
-
-        @Override
-        public String toString() {
-            return ReflectionToStringBuilder.toString(this, ToStringStyle.NO_CLASS_NAME_STYLE);
-        }
-
-        public String getCountryId() {
-            return countryId;
-        }
-
-        public void setCountryId(String countryId) {
-            this.countryId = countryId;
-        }
-
-        public float getProbability() {
-            return probability;
-        }
-
-        public void setProbability(float probability) {
             this.probability = probability;
         }
 
