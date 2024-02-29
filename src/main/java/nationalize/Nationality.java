@@ -1,6 +1,8 @@
 package nationalize;
 
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.Collections;
 import java.util.List;
@@ -20,6 +22,16 @@ public class Nationality {
         this.countries = countries;
     }
 
+    @Override
+    public String toString() {
+        if(count > 0){
+            StringBuilder out = new StringBuilder();
+            for(Country a:countries){
+                out.append(a.getCountryId()).append(" ").append(a.getProbability() * 100).append("%\n");
+            }
+            return out.toString();
+        }else return "Not Found";
+    }
 
     public long getCount() {
         return count;
@@ -53,6 +65,11 @@ public class Nationality {
         public Country(String countryId, float probability) {
             this.countryId = countryId;
             this.probability = probability;
+        }
+
+        @Override
+        public String toString() {
+            return ReflectionToStringBuilder.toString(this, ToStringStyle.NO_CLASS_NAME_STYLE);
         }
 
         public String getCountryId() {
